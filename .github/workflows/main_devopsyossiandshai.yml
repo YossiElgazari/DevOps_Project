@@ -21,10 +21,11 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: npm install, build, lint and test
         run: |
           npm install
           npm run build --if-present
+          npm run lint --if-present
           npm run test --if-present
 
       - name: Upload artifact for deployment job
@@ -52,5 +53,5 @@ jobs:
         with:
           app-name: 'devOpsYossiAndShai'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_470C259F0E90426A8A101AF1BEC86073 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_469D43D96CCC4F00A3E456528B7C3663 }}
           package: .
